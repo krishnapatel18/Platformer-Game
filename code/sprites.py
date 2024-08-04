@@ -155,6 +155,12 @@ class Player(AnimatedSprite):
         self.rect.y += self.direction.y 
         self.collision('vertical') 
 
+        # if player is falling out 
+        if self.rect.top > 2000: 
+            self.kill() 
+            pygame.quit() 
+            exit()
+
     def collision(self, direction): 
         for sprite in self.collision_sprites:
             if sprite.rect.colliderect(self.rect): 
